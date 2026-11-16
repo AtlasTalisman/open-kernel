@@ -65,7 +65,10 @@ checks that the copy has not been altered. It builds its own envelope from
 checks its logs with `verifyChain` and its own event parser. It never
 changes the copy: a change is made here, and every product takes it.
 
-## Status
+## Licence
 
-Published openly by Open World, 17 November 2026. No licence has been chosen
-yet; until one is, it may be read but all rights are reserved.
+Apache License 2.0: see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE). Anyone
+may use, change and share this, including in closed products. The licence
+grants no right to use the names Open World or Clown Pi.
+
+Published openly by Open World, 17 November 2026.
