@@ -65,6 +65,11 @@ checks that the copy has not been altered. It builds its own envelope from
 checks its logs with `verifyChain` and its own event parser. It never
 changes the copy: a change is made here, and every product takes it.
 
+## Contact
+
+Questions, or building something against the contract? Open an issue here,
+or write to Atlas Talisman at atlastalisman@protonmail.com.
+
 ## Licence
 
 Apache License 2.0: see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE). Anyone
