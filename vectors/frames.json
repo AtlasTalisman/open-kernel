@@ -1,0 +1,55 @@
+{
+  "client": {
+    "valid": [
+      "{\"k\":\"hello\",\"ticket\":\"eyJ.x.y\",\"lastSeq\":null}",
+      "{\"k\":\"hello\",\"ticket\":\"eyJ.x.y\",\"lastSeq\":0}",
+      "{\"k\":\"hello\",\"ticket\":\"eyJ.x.y\",\"lastSeq\":412}",
+      "{\"k\":\"act\",\"cid\":\"c1\",\"type\":\"poll.vote\",\"p\":{\"poll\":\"door\",\"option\":\"left\"}}",
+      "{\"k\":\"act\",\"cid\":\"c2\",\"type\":\"anything.a.product.defines\",\"p\":null}",
+      "{\"k\":\"ping\"}",
+      "{\"k\":\"pong\"}"
+    ],
+    "invalid": [
+      {
+        "name": "not JSON",
+        "frame": "{"
+      },
+      {
+        "name": "a frame only the authority sends",
+        "frame": "{\"k\":\"ack\",\"cid\":\"c1\",\"ok\":true}"
+      },
+      {
+        "name": "hello with no ticket",
+        "frame": "{\"k\":\"hello\",\"lastSeq\":null}"
+      },
+      {
+        "name": "hello with no lastSeq",
+        "frame": "{\"k\":\"hello\",\"ticket\":\"t\"}"
+      },
+      {
+        "name": "a negative lastSeq",
+        "frame": "{\"k\":\"hello\",\"ticket\":\"t\",\"lastSeq\":-1}"
+      },
+      {
+        "name": "an action with no cid",
+        "frame": "{\"k\":\"act\",\"type\":\"x\",\"p\":{}}"
+      },
+      {
+        "name": "an extra field",
+        "frame": "{\"k\":\"ping\",\"now\":1}"
+      }
+    ]
+  },
+  "refusals": [
+    "bad_frame",
+    "bad_action",
+    "no_ticket",
+    "expired",
+    "forbidden",
+    "state",
+    "conflict",
+    "not_found",
+    "rate",
+    "internal"
+  ]
+}

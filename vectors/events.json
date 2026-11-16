@@ -1,0 +1,132 @@
+[
+  {
+    "name": "demo.opened at seq 1",
+    "event": {
+      "id": "01KHBX6VG0040G2081040G2081",
+      "sid": "demo_0001",
+      "seq": 1,
+      "t": 1771000000000,
+      "wt": null,
+      "actor": {
+        "role": "host"
+      },
+      "type": "demo.opened",
+      "v": 1,
+      "p": {
+        "title": "A record from no product"
+      },
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "hash": "a8e9bb70e3035d4b22172678dd9f4d5e99428378921bc466de2e7fcd4532e53f"
+  },
+  {
+    "name": "demo.joined at seq 2",
+    "event": {
+      "id": "01KHBX6WYW081040G2081040G2",
+      "sid": "demo_0001",
+      "seq": 2,
+      "t": 1771000001500,
+      "wt": null,
+      "actor": {
+        "role": "guest",
+        "gid": "g_1"
+      },
+      "type": "demo.joined",
+      "v": 1,
+      "p": {
+        "name": "Ada"
+      },
+      "prev": "a8e9bb70e3035d4b22172678dd9f4d5e99428378921bc466de2e7fcd4532e53f"
+    },
+    "hash": "a07622d1975ccff50d70e144f3b7b9242ba4c8dfc07ef5c6a33ca3d8aacd378c"
+  },
+  {
+    "name": "demo.note at seq 3",
+    "event": {
+      "id": "01KHBX6WYW0C1G60R30C1G60R3",
+      "sid": "demo_0001",
+      "seq": 3,
+      "t": 1771000001500,
+      "wt": null,
+      "actor": {
+        "role": "guest",
+        "gid": "g_1",
+        "via": "phone"
+      },
+      "type": "demo.note",
+      "v": 1,
+      "p": {
+        "text": "naïve café ☕",
+        "n": 1
+      },
+      "prev": "a07622d1975ccff50d70e144f3b7b9242ba4c8dfc07ef5c6a33ca3d8aacd378c"
+    },
+    "hash": "525d9363b996f13dfe81c784afdbd623fc6d9559a291229564848cf03390c37d"
+  },
+  {
+    "name": "device.button at seq 4",
+    "event": {
+      "id": "01KHBX6XMR0G2081040G208104",
+      "sid": "demo_0001",
+      "seq": 4,
+      "t": 1771000002200,
+      "wt": null,
+      "actor": {
+        "role": "device",
+        "dev": "biscuit-01"
+      },
+      "type": "device.button",
+      "v": 1,
+      "p": {
+        "dev": "biscuit-01",
+        "press": "single"
+      },
+      "prev": "525d9363b996f13dfe81c784afdbd623fc6d9559a291229564848cf03390c37d"
+    },
+    "hash": "93e2d3515afee76378009f41fba8342bbaae783143b3645bda514a2e12c4dfad"
+  },
+  {
+    "name": "demo.note at seq 5",
+    "event": {
+      "id": "01KHBX74980M2GA1850M2GA185",
+      "sid": "demo_0001",
+      "seq": 5,
+      "t": 1771000009000,
+      "wt": 1771000004000,
+      "actor": {
+        "role": "guest",
+        "gid": "g_1"
+      },
+      "type": "demo.note",
+      "v": 1,
+      "p": {
+        "text": "made earlier, sent later",
+        "n": 2,
+        "tags": [
+          "a",
+          "b"
+        ]
+      },
+      "prev": "93e2d3515afee76378009f41fba8342bbaae783143b3645bda514a2e12c4dfad"
+    },
+    "hash": "badbf3c71796b26c43c4fe729d47a2be63b45d5f462be14049f6249fed3eefbc"
+  },
+  {
+    "name": "demo.closed at seq 6",
+    "event": {
+      "id": "01KHBX77700R30C1G60R30C1G6",
+      "sid": "demo_0001",
+      "seq": 6,
+      "t": 1771000012000,
+      "wt": null,
+      "actor": {
+        "role": "host"
+      },
+      "type": "demo.closed",
+      "v": 1,
+      "p": {},
+      "prev": "badbf3c71796b26c43c4fe729d47a2be63b45d5f462be14049f6249fed3eefbc"
+    },
+    "hash": "88b14d174a8d46272303a513356d222ad160edbedf628e2d784e965f0339afeb"
+  }
+]

@@ -1,0 +1,206 @@
+[
+  {
+    "name": "empty object",
+    "json": "{}",
+    "canonical": "{}",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  {
+    "name": "empty array",
+    "json": "[]",
+    "canonical": "[]",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "name": "keys are sorted",
+    "json": "{\"b\":1,\"a\":2,\"c\":3}",
+    "canonical": "{\"a\":2,\"b\":1,\"c\":3}",
+    "sha256": "e145110e712e3ed0a6b233551b27a90aa39b4c93ed67e111ba2002d16e5ed1fa"
+  },
+  {
+    "name": "keys are sorted at every depth",
+    "json": "{\"z\":{\"b\":1,\"a\":[{\"y\":1,\"x\":2}]},\"a\":null}",
+    "canonical": "{\"a\":null,\"z\":{\"a\":[{\"x\":2,\"y\":1}],\"b\":1}}",
+    "sha256": "ead12fea69717b03c5762b2a1111ea60ba8298ee7a90d3e3e674f96c286217bb"
+  },
+  {
+    "name": "capitals sort before lower case",
+    "json": "{\"a\":1,\"B\":2,\"A\":3,\"b\":4}",
+    "canonical": "{\"A\":3,\"B\":2,\"a\":1,\"b\":4}",
+    "sha256": "a93d8dc2f979a49987bb73d7ff1a501f0230ac1581123101c6ac8aca4d51fbd6"
+  },
+  {
+    "name": "digits sort as characters, not numbers",
+    "json": "{\"10\":1,\"9\":2,\"1\":3}",
+    "canonical": "{\"1\":3,\"10\":1,\"9\":2}",
+    "sha256": "38a3fdd6f89c34bb41bdb86e885678938b4aaaa0b743d49f3f509d65bbefa88e"
+  },
+  {
+    "name": "keys sort by UTF-16 code unit, not by code point",
+    "json": "{\"￮\":1,\"😀\":2,\"z\":3}",
+    "canonical": "{\"z\":3,\"😀\":2,\"￮\":1}",
+    "sha256": "edae84e89f59162bbd7d5066611667dba14ea88a2a511230a50654681c812edc"
+  },
+  {
+    "name": "whitespace is removed",
+    "json": " { \"a\" : [ 1 , 2 ] ,\n \"b\" : \"x y\" } ",
+    "canonical": "{\"a\":[1,2],\"b\":\"x y\"}",
+    "sha256": "7cbf9a1925627414ac77c5981864910898c7d4e7bfcb7a1f141c20abf7bd66df"
+  },
+  {
+    "name": "array order is kept",
+    "json": "[3,1,2]",
+    "canonical": "[3,1,2]",
+    "sha256": "51bda7ab4e44726cde71fcb6e4b515357059bb6b6dd5146d1fc50f73f11678c6"
+  },
+  {
+    "name": "null is kept; it is not the same as absent",
+    "json": "{\"a\":null}",
+    "canonical": "{\"a\":null}",
+    "sha256": "d091f9c83c091f79652fe8786375b3fe4ce0861a56f5bfbafedbe431877ff0e8"
+  },
+  {
+    "name": "true and false",
+    "json": "{\"t\":true,\"f\":false}",
+    "canonical": "{\"f\":false,\"t\":true}",
+    "sha256": "c22848c47426fcf4d27e55573c22f1d23546315c251e8e4bc384820ba5fae568"
+  },
+  {
+    "name": "a whole number written with a point",
+    "json": "1.0",
+    "canonical": "1",
+    "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+  },
+  {
+    "name": "a whole number written with an exponent",
+    "json": "1e2",
+    "canonical": "100",
+    "sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
+  },
+  {
+    "name": "zero",
+    "json": "0",
+    "canonical": "0",
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  },
+  {
+    "name": "minus zero is zero",
+    "json": "-0.0",
+    "canonical": "0",
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  },
+  {
+    "name": "a fraction",
+    "json": "1.5",
+    "canonical": "1.5",
+    "sha256": "9f29a130438b81170b92a42650f9a94291ecad60bd47af2a3886e75f7f728725"
+  },
+  {
+    "name": "a tenth",
+    "json": "0.1",
+    "canonical": "0.1",
+    "sha256": "14be4b45f18e0d8c67b4f719b5144eee88497e413709d11d85b096d8e2346310"
+  },
+  {
+    "name": "a negative fraction",
+    "json": "-2.25",
+    "canonical": "-2.25",
+    "sha256": "805fc768f9b682818a37b950815f89359472a0b342a0bb23291b87ac43e73103"
+  },
+  {
+    "name": "small, still written out",
+    "json": "0.000001",
+    "canonical": "0.000001",
+    "sha256": "159fb29a827ad04b260aa6c8ab6d8637f8f2b38af5c4f3cb49d6a21205e040f8"
+  },
+  {
+    "name": "smaller, written with an exponent",
+    "json": "1e-7",
+    "canonical": "1e-7",
+    "sha256": "5b33e02f2c5103a05d32f6ba9cb058294452bfbf393967f68bb30c1bdcbbab22"
+  },
+  {
+    "name": "smaller, with digits",
+    "json": "1.5e-7",
+    "canonical": "1.5e-7",
+    "sha256": "bbe54b73760f9025086de0202c3caa81352dc0260869890c9dca3cda39ba767f"
+  },
+  {
+    "name": "large, still written out",
+    "json": "123456789012345680000",
+    "canonical": "123456789012345680000",
+    "sha256": "725abf175290195635e55a971cf88e02a46d6d56e964ec2d8bc47614b9559062"
+  },
+  {
+    "name": "larger, written with an exponent",
+    "json": "1e21",
+    "canonical": "1e+21",
+    "sha256": "241c4643fa70b1dcde1205b71be4e3bebb17e9f880c8e1a33d0ead6c27271d3c"
+  },
+  {
+    "name": "the largest whole number that is exact",
+    "json": "9007199254740991",
+    "canonical": "9007199254740991",
+    "sha256": "f40b423c2dd95ff2b2f027e22208f438cf7242862e5e746860e697308c9add26"
+  },
+  {
+    "name": "a time in milliseconds",
+    "json": "1771000000000",
+    "canonical": "1771000000000",
+    "sha256": "7451369b4298f0e57586b82cad278f1eedd35db8371c8adbafc17b4cc3324831"
+  },
+  {
+    "name": "a plain string",
+    "json": "\"hello\"",
+    "canonical": "\"hello\"",
+    "sha256": "5aa762ae383fbb727af3c7a36d4940a5b8c40a989452d2304fc958ff3f354e7a"
+  },
+  {
+    "name": "quote and backslash are escaped",
+    "json": "\"say \\\"hi\\\" \\\\ there\"",
+    "canonical": "\"say \\\"hi\\\" \\\\ there\"",
+    "sha256": "c3d77b6f37756bd7f7abe389765870744734f6ffc58381752d26d8d755657234"
+  },
+  {
+    "name": "newline and tab use their short escapes",
+    "json": "\"a\\nb\\tc\"",
+    "canonical": "\"a\\nb\\tc\"",
+    "sha256": "2dcdb3101eb07207f88c5a2e7f209c4219ef6aa4c06632517ceab98f52397a0a"
+  },
+  {
+    "name": "other control characters use four hex digits, lower case",
+    "json": "\"\\u0001\\u001f\"",
+    "canonical": "\"\\u0001\\u001f\"",
+    "sha256": "f815f96679a091ead4c530e4c613290cf48dd890f519c2ebc07adc3dcc596641"
+  },
+  {
+    "name": "a slash is not escaped",
+    "json": "\"a\\/b\"",
+    "canonical": "\"a/b\"",
+    "sha256": "f5effa31772a3689cb116700c569f4b72d765290968f099016a899ab6c1e4ee3"
+  },
+  {
+    "name": "characters beyond ASCII are written as they are",
+    "json": "\"café ☕ 😀\"",
+    "canonical": "\"café ☕ 😀\"",
+    "sha256": "ab0c10419df5bd0b35fcacd89a9448aed125eaf8881a96d8ff2fa6c4fdd4ae74"
+  },
+  {
+    "name": "an escaped character is written as itself",
+    "json": "\"\\u00e9\"",
+    "canonical": "\"é\"",
+    "sha256": "f2886017e9c7abacf804b54d64787dce2b611c9544ba21f3affdd126a6e50086"
+  },
+  {
+    "name": "line separator is written as it is",
+    "json": "\"a\\u2028b\"",
+    "canonical": "\"a b\"",
+    "sha256": "86217f48f4443207effcf94b7836440050401eca7c2b8ca40372f0d0eab8e905"
+  },
+  {
+    "name": "an empty string, and an empty key",
+    "json": "{\"\":\"\"}",
+    "canonical": "{\"\":\"\"}",
+    "sha256": "86cfeee6df382a203f626305afbca44d228cac67acd151ccf2db29530c548fea"
+  }
+]

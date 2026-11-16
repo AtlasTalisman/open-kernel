@@ -1,0 +1,73 @@
+{
+  "valid": [
+    "{\"k\":\"hello\",\"dev\":\"jf-01\",\"fw\":\"0.1.0\",\"caps\":[\"nfc\",\"button\",\"ring\",\"espnow\"]}",
+    "{\"k\":\"ev\",\"n\":41,\"type\":\"device.tapped\",\"p\":{\"reader\":\"door\",\"tag\":\"04a2\"}}",
+    "{\"k\":\"ev\",\"n\":42,\"type\":\"device.button\",\"p\":{\"dev\":\"biscuit-01\",\"press\":\"single\"}}",
+    "{\"k\":\"ev\",\"n\":43,\"type\":\"device.near\",\"p\":{\"dev\":\"biscuit-01\",\"other\":\"biscuit-02\"}}",
+    "{\"k\":\"do\",\"cid\":\"c9\",\"to\":\"biscuit-01\",\"action\":\"device.haptic\",\"args\":{\"pattern\":\"double\"}}",
+    "{\"k\":\"do\",\"cid\":\"c10\",\"to\":\"jf-01\",\"action\":\"device.ring\"}",
+    "{\"k\":\"ack\",\"cid\":\"c9\",\"ok\":true}",
+    "{\"k\":\"ack\",\"cid\":\"c10\",\"ok\":false,\"err\":\"busy\"}"
+  ],
+  "invalid": [
+    {
+      "name": "not JSON",
+      "line": "hello"
+    },
+    {
+      "name": "an unknown kind",
+      "line": "{\"k\":\"cmd\",\"x\":1}"
+    },
+    {
+      "name": "an event that is not a device event",
+      "line": "{\"k\":\"ev\",\"n\":1,\"type\":\"show.panic\",\"p\":{}}"
+    },
+    {
+      "name": "an event with no counter",
+      "line": "{\"k\":\"ev\",\"type\":\"device.button\",\"p\":{}}"
+    },
+    {
+      "name": "a counter of zero",
+      "line": "{\"k\":\"ev\",\"n\":0,\"type\":\"device.button\",\"p\":{}}"
+    },
+    {
+      "name": "an action a device does not have",
+      "line": "{\"k\":\"do\",\"cid\":\"c1\",\"to\":\"jf-01\",\"action\":\"show.panic\"}"
+    },
+    {
+      "name": "an extra field",
+      "line": "{\"k\":\"ack\",\"cid\":\"c9\",\"ok\":true,\"sig\":\"x\"}"
+    },
+    {
+      "name": "a list, not an object",
+      "line": "[{\"k\":\"ack\",\"cid\":\"c9\",\"ok\":true}]"
+    }
+  ],
+  "counters": [
+    {
+      "last": 0,
+      "n": 1,
+      "fresh": true
+    },
+    {
+      "last": 41,
+      "n": 42,
+      "fresh": true
+    },
+    {
+      "last": 41,
+      "n": 50,
+      "fresh": true
+    },
+    {
+      "last": 41,
+      "n": 41,
+      "fresh": false
+    },
+    {
+      "last": 41,
+      "n": 7,
+      "fresh": false
+    }
+  ]
+}

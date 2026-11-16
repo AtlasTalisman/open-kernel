@@ -1,0 +1,6 @@
+{
+  // Tests, which read the vector files.
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "types": ["node"] },
+  "include": ["src", "test"]
+}

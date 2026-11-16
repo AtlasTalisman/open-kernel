@@ -1,0 +1,350 @@
+{
+  "match": [
+    {
+      "name": "the type matches and there is no where",
+      "rule": {
+        "on": "device.button",
+        "do": "show.primary"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "another type",
+      "rule": {
+        "on": "device.tapped",
+        "do": "show.primary"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "a type is matched whole, not by its family",
+      "rule": {
+        "on": "device",
+        "do": "x"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "every field in where is equal",
+      "rule": {
+        "on": "device.button",
+        "where": {
+          "dev": "biscuit-01",
+          "press": "single"
+        },
+        "do": "show.primary"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "one field differs",
+      "rule": {
+        "on": "device.button",
+        "where": {
+          "dev": "biscuit-01",
+          "press": "double"
+        },
+        "do": "show.secondary"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "a field the payload does not have",
+      "rule": {
+        "on": "device.button",
+        "where": {
+          "reader": "door"
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "fields not named in where do not matter",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "winner": "left"
+        },
+        "do": "cue.play",
+        "args": {
+          "cue": "creaky-door"
+        }
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "a number is matched as a number",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "votes": 41
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "a number is not its text",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "votes": "41"
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "false is matched",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "tie": false
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "false is not null",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "tie": null
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "null is matched when the field is there and null",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "note": null
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "null does not match a field that is absent",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {
+          "missing": null
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": false
+    },
+    {
+      "name": "an empty where matches",
+      "rule": {
+        "on": "poll.resolved",
+        "where": {},
+        "do": "x"
+      },
+      "event": {
+        "type": "poll.resolved",
+        "p": {
+          "poll": "door",
+          "winner": "left",
+          "votes": 41,
+          "tie": false,
+          "note": null
+        }
+      },
+      "match": true
+    },
+    {
+      "name": "a payload that is not an object matches no where",
+      "rule": {
+        "on": "x.happened",
+        "where": {
+          "a": 1
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "x.happened",
+        "p": [
+          1
+        ]
+      },
+      "match": false
+    },
+    {
+      "name": "where is matched on the payload, not the envelope",
+      "rule": {
+        "on": "device.button",
+        "where": {
+          "type": "device.button"
+        },
+        "do": "x"
+      },
+      "event": {
+        "type": "device.button",
+        "p": {
+          "dev": "biscuit-01",
+          "press": "single"
+        }
+      },
+      "match": false
+    }
+  ],
+  "invalid": [
+    {
+      "name": "where may not hold an object",
+      "rule": {
+        "on": "a.b",
+        "where": {
+          "x": {
+            "y": 1
+          }
+        },
+        "do": "x"
+      }
+    },
+    {
+      "name": "where may not hold a list",
+      "rule": {
+        "on": "a.b",
+        "where": {
+          "x": [
+            1
+          ]
+        },
+        "do": "x"
+      }
+    },
+    {
+      "name": "a rule needs a do",
+      "rule": {
+        "on": "a.b"
+      }
+    },
+    {
+      "name": "a rule has four fields and no others",
+      "rule": {
+        "on": "a.b",
+        "do": "x",
+        "unless": {}
+      }
+    }
+  ],
+  "maxDepth": 4
+}

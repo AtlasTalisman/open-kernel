@@ -1,0 +1,24 @@
+{
+  "name": "open-kernel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Open World kernel: ids, canonical JSON, the hash chain, the event envelope, frames, rule matching and the device bridge. An implementation of the contract in CONTRACT.md, with the contract's test vectors.",
+  "packageManager": "pnpm@12.14.0",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.tools.json",
+    "test": "vitest run",
+    "check": "pnpm typecheck && pnpm test",
+    "vectors": "python3 vectors/make.py"
+  },
+  "dependencies": {
+    "@noble/hashes": "^2.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.12"
+  }
+}
